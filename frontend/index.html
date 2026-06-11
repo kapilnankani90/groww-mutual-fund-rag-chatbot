@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutual Fund FAQ Assistant</title>
+    <!-- Google Fonts: Outfit and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Sector Allocation Marquee Dashboard -->
+    <div class="ticker-wrap" id="allocation-ticker">
+        <div class="ticker">
+            <span class="ticker-item">Financial: 28.5%</span>
+            <span class="ticker-item">Technology: 18.2%</span>
+            <span class="ticker-item">Energy & Utilities: 12.4%</span>
+            <span class="ticker-item">Healthcare: 9.8%</span>
+            <span class="ticker-item">Materials: 8.5%</span>
+            <span class="ticker-item">Industrials: 7.9%</span>
+            <span class="ticker-item">Consumer Discretionary: 6.3%</span>
+            <!-- Repeated for seamless infinite loop -->
+            <span class="ticker-item">Financial: 28.5%</span>
+            <span class="ticker-item">Technology: 18.2%</span>
+            <span class="ticker-item">Energy & Utilities: 12.4%</span>
+            <span class="ticker-item">Healthcare: 9.8%</span>
+            <span class="ticker-item">Materials: 8.5%</span>
+            <span class="ticker-item">Industrials: 7.9%</span>
+            <span class="ticker-item">Consumer Discretionary: 6.3%</span>
+        </div>
+    </div>
+
+    <!-- App Container -->
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-logo">
+                <div class="green-dot"></div>
+                <h1>ICICI Prudential FAQ Assistant</h1>
+            </div>
+            <div class="compliance-badge">
+                <span>Facts-only. No investment advice.</span>
+            </div>
+        </header>
+
+        <!-- Chat Viewport -->
+        <main class="chat-viewport" id="chat-viewport">
+            <!-- Onboarding State -->
+            <div class="onboarding-container" id="onboarding-container">
+                <div class="welcome-icon">💬</div>
+                <h2>How can I help you today?</h2>
+                <p class="welcome-text">Ask me factual, objective questions regarding ICICI Prudential Mutual Fund schemes. I can fetch exit loads, expense ratios, SIP minimums, fund managers, and more.</p>
+                
+                <div class="example-grid">
+                    <button class="example-card" onclick="sendExamplePrompt('What is the exit load of Large Cap fund?')">
+                        <span class="card-prompt">"What is the exit load of Large Cap fund?"</span>
+                        <span class="card-action">Ask Question →</span>
+                    </button>
+                    <button class="example-card" onclick="sendExamplePrompt('Who manages the Corporate Bond Fund?')">
+                        <span class="card-prompt">"Who manages the Corporate Bond Fund?"</span>
+                        <span class="card-action">Ask Question →</span>
+                    </button>
+                    <button class="example-card" onclick="sendExamplePrompt('What is the minimum SIP investment for Icici Prudential Silver Etf Fof?')">
+                        <span class="card-prompt">"What is the minimum SIP for Silver ETF FoF?"</span>
+                        <span class="card-action">Ask Question →</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages Area (Dynamically Populated) -->
+            <div class="messages-list" id="messages-list"></div>
+        </main>
+
+        <!-- Input Panel -->
+        <footer class="input-panel">
+            <form id="chat-form" class="chat-form">
+                <input type="text" id="user-input" placeholder="Ask about exit loads, expense ratios, fund managers..." autocomplete="off" required>
+                <button type="submit" id="send-btn" class="send-btn">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                    </svg>
+                </button>
+            </form>
+            <div class="footer-note">
+                <span>All replies are facts-only and fetched from parsed Groww documentation.</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

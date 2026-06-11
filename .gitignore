@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Databases and Vector Stores
+data/vector_store/
+data/tfidf_vectorizer.pkl
+
+# Environment variables & secrets
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
