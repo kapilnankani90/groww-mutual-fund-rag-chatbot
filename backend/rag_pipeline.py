@@ -122,10 +122,13 @@ def query_assistant(query: str) -> Dict[str, Any]:
     if static_result:
         return static_result
         
-    # Paths
+    # Paths — resolve data directory with fallback for Railway deployment
     base_dir = os.path.dirname(backend_dir)
-    db_path = os.path.join(base_dir, "data", "vector_store")
-    vectorizer_path = os.path.join(base_dir, "data", "tfidf_vectorizer.pkl")
+    data_dir = os.path.join(base_dir, "data")
+    if not os.path.exists(data_dir):
+        data_dir = os.path.join(backend_dir, "data")
+    db_path = os.path.join(data_dir, "vector_store")
+    vectorizer_path = os.path.join(data_dir, "tfidf_vectorizer.pkl")
     
     # 2. Retrieve Context
     try:

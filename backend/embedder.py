@@ -23,11 +23,17 @@ def index_corpus() -> None:
         
     from chunker import process_corpus
     
-    # Paths
+    # Paths — resolve data directory with fallback for Railway deployment
+    # Local dev: data/ is at ../data/ (sibling of backend/)
+    # Railway (root=backend/): data/ is at ./data/ (inside backend/)
     base_dir = os.path.dirname(backend_dir)
-    corpus_path = os.path.join(base_dir, "data", "mutual_funds_corpus.json")
-    db_path = os.path.join(base_dir, "data", "vector_store")
-    vectorizer_path = os.path.join(base_dir, "data", "tfidf_vectorizer.pkl")
+    data_dir = os.path.join(base_dir, "data")
+    if not os.path.exists(os.path.join(data_dir, "mutual_funds_corpus.json")):
+        data_dir = os.path.join(backend_dir, "data")
+    os.makedirs(data_dir, exist_ok=True)
+    corpus_path = os.path.join(data_dir, "mutual_funds_corpus.json")
+    db_path = os.path.join(data_dir, "vector_store")
+    vectorizer_path = os.path.join(data_dir, "tfidf_vectorizer.pkl")
     
     print(f"Processing corpus from {corpus_path}...")
     if not os.path.exists(corpus_path):

@@ -13,6 +13,8 @@ pip-delete-this-directory.txt
 # Databases and Vector Stores
 data/vector_store/
 data/tfidf_vectorizer.pkl
+backend/data/vector_store/
+backend/data/tfidf_vectorizer.pkl
 
 # Environment variables & secrets
 .env
