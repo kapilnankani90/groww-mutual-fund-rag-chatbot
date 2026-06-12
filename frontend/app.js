@@ -1,5 +1,5 @@
 // Configure your API backend URL here (leave empty to use relative path for local development)
-const BACKEND_API_URL = '';
+const BACKEND_API_URL = 'https://groww-mutual-fund-rag-chatbot-production.up.railway.app';
 
 // DOM Elements
 const onboardingContainer = document.getElementById('onboarding-container');
